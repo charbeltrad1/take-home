@@ -25,7 +25,7 @@ a JSON payload.
      "bar": "some_encrypted_string"
    }
    ```
-3. **Base64** encryption algorythm should be easily swappable by another algorithm without much changes in the codebase.     
+3. The **Base64** encryption algorithm should be easily replaceable with another algorithm without requiring significant changes to the codebase.
 4. Create a `/sign` endpoint which takes a JSON payload and computes a
 cryptographic signature for the plaintext payload in HMAC. The signature is then
 sent in a JSON response.
@@ -39,4 +39,4 @@ sent in a JSON response.
 }
 ```
 - Data can be any JSON object and can contain encrypted fields.
-- If this signature matches the given signature, the response should be `204`, else `400`.
+- If the provided signature matches the computed signature, the response code should be `204`; otherwise, it should be `400`.
