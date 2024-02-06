@@ -1,0 +1,14 @@
+const express = require("express");
+const { encode } = require("../utils");
+const router = express.Router();
+
+router.post("/", (req, res) => {
+  const payload = req.body;
+  let encryptedPayload = {};
+  for (const key in payload) {
+    encryptedPayload[key] = encode(JSON.stringify(payload[key]));
+  }
+  res.json(encryptedPayload);
+});
+
+module.exports = router;

@@ -1,0 +1,13 @@
+const express = require("express");
+const router = express.Router();
+const { sign } = require("../utils");
+
+router.post("/", (req, res) => {
+  if (req.body.signature === sign(req.body.data)) {
+    res.status(204).send();
+  } else {
+    res.status(400).send();
+  }
+});
+
+module.exports = router;

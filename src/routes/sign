@@ -1,0 +1,9 @@
+const express = require("express");
+const router = express.Router();
+const { sign } = require("../utils");
+
+router.post("/", (req, res) => {
+  res.send(sign(req.body));
+});
+
+module.exports = router;
